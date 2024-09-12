@@ -16,6 +16,17 @@ const App = () => {
     {ball: 32},
   ])
 
+  const changeNumbers = () => {
+    setBalls([
+      {ball: 6},
+      {ball: 15},
+      {ball: 18},
+      {ball: 25},
+      {ball: 34},
+    ])
+
+  };
+
   return (
     <>
       <Lotteryball ball={balls[0].ball}/>
@@ -23,6 +34,7 @@ const App = () => {
       <Lotteryball ball={balls[2].ball}/>
       <Lotteryball ball={balls[3].ball}/>
       <Lotteryball ball={balls[4].ball}/>
+      <button onClick={changeNumbers} type={"button"}>New numbers</button>
     </>
   )
 };
