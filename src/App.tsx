@@ -16,15 +16,24 @@ const App = () => {
     {ball: 32},
   ])
 
-  const changeNumbers = () => {
-    setBalls([
-      {ball: 6},
-      {ball: 15},
-      {ball: 18},
-      {ball: 25},
-      {ball: 34},
-    ])
 
+  const changeNumbers = () => {
+    const numbersSet = new Set<number>();
+
+    while (numbersSet.size < 5) {
+      const randomNumber = Math.floor(Math.random() * (36 - 5 + 1)) + 5;
+      numbersSet.add(randomNumber);
+    }
+
+    const sortedNumbers = Array.from(numbersSet).sort((a, b) => a - b);
+
+    setBalls([
+      {ball: sortedNumbers[0]},
+      {ball: sortedNumbers[1]},
+      {ball: sortedNumbers[2]},
+      {ball: sortedNumbers[3]},
+      {ball: sortedNumbers[4]},
+    ]);
   };
 
   return (
